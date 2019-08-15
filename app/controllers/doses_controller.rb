@@ -5,18 +5,24 @@ class DosesController < ApplicationController
   end
 
   def create
-    # create cocktai, ingredient, dose
     @cocktail = Cocktail.find(params[:cocktail_id])
-    @ingredient = Ingredient.find(params[:dose][:ingredient_id])
     @dose = Dose.new(dose_params)
-
-    # associate cocktail & ingredient
     @dose.cocktail = @cocktail
-    @dose.ingredient = @ingredient
 
-    #save & redirect
-    @dose.save
-    redirect_to @cocktail
+    # check if ingredient exist
+    if params[:dose][:ingredient_id].present?
+      @ingredient = Ingredient.find(params[:dose][:ingredient_id])
+      @dose.ingredient = @ingredient
+    else
+      @ingredient = ""
+    end
+
+    # save & redirect
+    if @dose.save
+      redirect_to @cocktail
+    else
+      render :new
+    end
   end
 
   def destroy
