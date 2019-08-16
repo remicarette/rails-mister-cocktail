@@ -15,7 +15,11 @@
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
+import 'select2/dist/css/select2.css';
+
 import 'bootstrap';
 import { loadDynamicBannerText } from '../components/banner';
+import { initSelect2 } from '../components/select2'
 
 loadDynamicBannerText();
+initSelect2();
