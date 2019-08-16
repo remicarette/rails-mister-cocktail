@@ -1,14 +1,39 @@
 <%= render "shared/banner_show" %>
 <div class="container">
-  <div class="container-form">
-    <h2 class="text-center">Add a dose to </h2>
-    <h2 class="text-center"><%= @cocktail.name %></h2>
-    <div class="p-2">
-      <%= simple_form_for [@cocktail, @dose] do |f| %>
-        <%= f.input :description %>
-        <%= f.association :ingredient %>
-        <%= f.submit 'Add a dose', class: 'btn btn-primary' %>
-      <% end %>
+  <div class="row">
+
+    <div class="col-4 offset-2">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @cocktail.photo %>)">
+        <%= link_to @cocktail.name, @cocktail  %>
+      </div>
+      <div class="card-doses mt-4">
+        <% @cocktail.doses.each do |dose| %>
+          <div class="d-flex align-items-center">
+            <p class="m-0 p-2">
+              <i class="fas fa-check-circle"></i>
+              <%= dose.ingredient.name %>
+              <%= dose.description %>
+            </p>
+          </div>
+        <% end %>
+      </div>
     </div>
+
+    <div class="col-4">
+      <div class="container-form">
+        <h2 class="text-center">Add a dose </h2>
+        <div class="p-2">
+          <%= simple_form_for [@cocktail, @dose] do |f| %>
+            <%= f.input :description %>
+            <%= f.association :ingredient %>
+            <%= f.submit 'Add a dose', class: 'btn btn-primary' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
   </div>
+          <!-- card -->
+
+
 </div>
