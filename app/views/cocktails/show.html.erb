@@ -1,10 +1,14 @@
 <%= render "shared/banner_show" %>
 <div class="container">
-  <div class="d-flex justify-content-around position-relative">
+  <div class="d-flex justify-content-center">
     <div class="card card-position" style="width: 24rem;">
       <div class="card-body">
-        <div class="d-flex justify-content-center">
-          <%= cl_image_tag @cocktail.photo, height: 230, width: 250, crop: :fill %>
+        <div class="">
+          <div class="text-center"><h2><%= @cocktail.name %></h2></div>
+
+          <div class="d-flex justify-content-center">
+            <%= cl_image_tag @cocktail.photo, effect: "shadow", x: 1, y: 1, crop: "scale", height: 250, width: 250 %>
+          </div>
         </div>
         <ul>
           <% @cocktail.doses.each do |dose| %>
@@ -19,8 +23,4 @@
       </div>
     </div>
   </div>
-</div>
-
-<div class="d-flex justify-content-center">
-  <%= link_to 'back cocktails list', cocktails_path %>
 </div>
