@@ -7,6 +7,19 @@
     </div>
   </div>
 
+  <!-- Alert if there is no data matching with the query -->
+  <% if @cocktails == [] %>
+    <div class="row justify-content-center my-3">
+      <div class="flash flash-danger alert alert-dismissible fade show" role="alert">
+        <span><strong>Oops!</strong> 😱 there is no cocktail for <%= params[:query] %>.</span>
+        <a data-dismiss="alert" aria-label="Close">
+          <i class="fas fa-times"></i>
+        </a>
+      </div>
+    </div>
+  <% end %>
+  <!-- end of alert  -->
+
   <div class="row">
     <% @cocktails.each do |cocktail| %>
       <div class="col-4 mb-3">
