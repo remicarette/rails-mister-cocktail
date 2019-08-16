@@ -31,7 +31,11 @@ end
 
 # Create cocktails
 
-Cocktail.create!(name: 'gin tonic')
+Cocktail.create!(name: 'gin tonic', url:'https://picsum.photos/300/300')
+Cocktail.create!(name: 'vodka orange', url:'https://picsum.photos/301/301')
+Cocktail.create!(name: 'vodka pomme', url:'https://picsum.photos/302/302')
+Cocktail.create!(name: 'whisky sour', url:'https://picsum.photos/303/303')
+
 
 # Create dose with association with cocktail & ingredient
 

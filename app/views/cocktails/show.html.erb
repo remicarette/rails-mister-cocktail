@@ -1,7 +1,26 @@
+<%= render "shared/banner_show", url: @cocktail.url, name: @cocktail.name %>
 
-<p><%= @cocktail.name %></p>
-<% @cocktail.doses.each do |dose| %>
-  <p><%= dose.ingredient.name %> <%= dose.description %></p>
-<% end %>
+<div class="container">
+  <div class="d-flex justify-content-around position-relative">
+    <div class="card card-position" style="width: 18rem;">
+      <%= image_tag @cocktail.url, alt: @cocktail.name %>
+      <div class="card-body">
+        <ul>
+          <% @cocktail.doses.each do |dose| %>
+          <div class="m-2">
+            <i class="far fa-check-circle"></i> <%= dose.ingredient.name %> <%= dose.description %>
+          </div>
+          <% end %>
+        </ul>
+        <div class="d-flex justify-content-around">
+          <%= link_to 'Add a dose', new_cocktail_dose_path(@cocktail), class: "text-warning" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
 <%= link_to 'back cocktails list', cocktails_path %>
-<%= link_to 'Add a dose', new_cocktail_dose_path(@cocktail) %>

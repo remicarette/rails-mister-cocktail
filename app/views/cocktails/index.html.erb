@@ -1,12 +1,12 @@
-
-<p>
-  <% @cocktails.each do |cocktail| %>
-  <p><%= link_to cocktail.name, cocktail  %> </p>
-  <div>
-    <% cocktail.doses.each do |dose| %>
-      <p><%= dose.ingredient.name %> <%= dose.description %></p>
-      <%= link_to "x", dose_path(dose), method: :delete, data: { confirm: "Are you sure ?"} %>
+<%= render "shared/navbar", url: "https://static.vinepair.com/wp-content/uploads/2015/06/fake-cocktail-bar-liqueurs.jpg" %>
+<div class="container">
+  <div class="row">
+    <% @cocktails.each do |cocktail| %>
+      <div class="col-4 mb-3">
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+          <%= link_to cocktail.name, cocktail  %>
+        </div>
+      </div>
     <% end %>
   </div>
-  <% end %>
-</p>
+</div>
