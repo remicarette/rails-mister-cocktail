@@ -1,4 +1,16 @@
-<%= simple_form_for @cocktail do |f| %>
-  <%= f.input :name %>
-  <%= f.submit 'Add a dose', class: 'btn btn-primary' %>
-<% end %>
+<%= render "shared/banner_show" %>
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-6">
+      <div class="container-form ">
+          <%= simple_form_for @cocktail do |f| %>
+            <%= f.input :name %>
+            <%= f.input :photo %>
+            <%= f.input :photo_cache, as: :hidden %>
+
+            <%= f.submit 'Add a cocktail', class: 'btn btn-primary' %>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>

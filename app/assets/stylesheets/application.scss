@@ -11,4 +11,15 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
-@import "cocktails.scss"
+@import "cocktails.scss";
+
+.container-form {
+  // border: 1px solid black;
+  width: 400px;
+  margin: 0 auto;
+  // margin: 0 0;
+  margin-top: 15px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+

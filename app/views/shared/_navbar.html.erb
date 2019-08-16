@@ -1,8 +1,10 @@
-<div class="banner mb-4" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= url %>);">
-  <div class="container">
-    <div class="text-center">
-      <h1>Mister Cocktail</h1>
-      <p>Create your own cocktail !</p>
-    </div>
+<nav class="navbar navbar-light bg-light sticky-top d-flex justify-content-between border-bottom">
+  <div>
+    <%= link_to "Mister Cocktail", cocktails_path, class: "navbar-brand" %>
   </div>
-</div>
+  <div>
+    <%= link_to new_cocktail_path, class: "btn btn-outline-primary" do %>
+        Add a cocktail
+    <% end %>
+  </div>
+</nav>
